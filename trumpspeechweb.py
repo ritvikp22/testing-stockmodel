@@ -10,7 +10,7 @@ d = DesiredCapabilities.CHROME
 d['goog:loggingPrefs'] = { 'browser':'ALL' }
 driver = webdriver.Chrome(desired_capabilities=d)
 action = webdriver.common.action_chains.ActionChains(driver)
-driver.get("https://www.rev.com/blog/transcript-category/donald-trump-transcripts/page/3?view=all")
+driver.get("https://www.rev.com/blog/transcript-category/donald-trump-transcripts/page/4?view=all")
 i = 11
 val = driver.find_element_by_xpath("//*[@id=\"fl-main-content\"]/div[1]/div/div/div/div[4]/div/div/div/div/div[1]/div[" + str(i) + "]/div")
 time.sleep(3)
