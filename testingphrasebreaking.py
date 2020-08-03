@@ -23,6 +23,9 @@ for i in tokenized:
             dotry = True
         if(dotry):
             temp_val += tagged[i][0] + " "
+        if(tagged[i][1] == "CC"):
+            dotry = False
+            temp_val = ""
         if(tagged[i][1] == "NN" or tagged[i][1] == "NNS"):
             dotry = False
             vals.append(temp_val[0: len(temp_val)-1])
