@@ -100,7 +100,6 @@ totalA = transcripts[0]
 totalB = transcripts[1]
 
 unique_phrases = set(docA).union(set(docB))
-# print(unique_phrases)
 
 numOfWordsA = dict.fromkeys(unique_phrases, 0)
 for word in docA:
