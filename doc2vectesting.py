@@ -32,4 +32,4 @@ model.save("test_doc2vec2.model")
 print("SAVED")
 '''
 model= Doc2Vec.load("test_doc2vec2.model")
-print(model.n_similarity(remove_stopwords("thanks everyone").split(), remove_stopwords("thanks all").split()))
+print(model.n_similarity(remove_stopwords("thanks").split(), remove_stopwords("thanks").split()))
