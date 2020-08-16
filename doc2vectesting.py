@@ -10,7 +10,7 @@ def remove_stopwords(string):
         if word not in stopwords.words("english"):
             new_string += word + " "
     return new_string[:len(new_string)-1]
-'''
+
 ## Exapmple document (list of sentences)
 doc = list()
 csv.field_size_limit(sys.maxsize)
@@ -27,9 +27,21 @@ for d in doc:
 print("TOKENIZED")
 tagged_data = [TaggedDocument(d, [i]) for i, d in enumerate(tokenized_doc)]
 print("TAGGED")
+model = Doc2Vec(tagged_data, vector_size=20, window=2, min_count=1, workers=4, epochs = 1)
+model.save("doc2vec1.model")
+print("1 done")
+model = Doc2Vec(tagged_data, vector_size=20, window=2, min_count=1, workers=4, epochs = 10)
+model.save("doc2vec10.model")
+print("10 done")
+model = Doc2Vec(tagged_data, vector_size=20, window=2, min_count=1, workers=4, epochs = 50)
+model.save("doc2vec50.model")
+print("50 done")
 model = Doc2Vec(tagged_data, vector_size=20, window=2, min_count=1, workers=4, epochs = 100)
-model.save("test_doc2vec2.model")
-print("SAVED")
-'''
-model= Doc2Vec.load("test_doc2vec2.model")
-print(model.n_similarity(remove_stopwords("thanks").split(), remove_stopwords("thanks").split()))
+model.save("doc2vec100.model")
+print("100 done")
+model = Doc2Vec(tagged_data, vector_size=20, window=2, min_count=1, workers=4, epochs = 200)
+model.save("doc2vec200.model")
+print("200 done")
+model = Doc2Vec(tagged_data, vector_size=20, window=2, min_count=1, workers=4, epochs = 500)
+model.save("doc2vec500.model")
+print("500 done")
