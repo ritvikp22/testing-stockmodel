@@ -1,2 +1,4 @@
 #Pycharm
 .idea
+#Compile
+__pycache__/
