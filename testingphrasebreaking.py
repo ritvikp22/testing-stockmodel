@@ -9,16 +9,16 @@ csv.field_size_limit(sys.maxsize)
 rows = list()
 donelist = list()
 length = 0
-f = open("trumpspeeches.csv")
+f = open("trumpspeeches4.csv")
 length = len(f.readlines())
-print(length)
-with open("trumpspeeches.csv", 'r') as csvfile:
+#print(length)
+with open("trumpspeeches4.csv", 'r') as csvfile:
     csvreader = csv.reader(csvfile)
     for row in csvreader:
         rows.append(row)
 index = 0
 while(index < length):
-    tokenized = sent_tokenize(rows[index][1])
+    tokenized = sent_tokenize(rows[index][2])
     temp_counter = 0
     counter = 0
     sums = 0
@@ -53,10 +53,11 @@ while(index < length):
         counter += 1
         sums += len(val.split())
     avg_word_list = [sums/counter]
-    with open("trumpspeeches2.csv", 'w') as csvfile:
+    with open("trumpspeeches5.csv", 'w') as csvfile:
         csvwriter = csv.writer(csvfile)
         csvwriter.writerows(donelist)
         csvwriter.writerow(rows[index] + vals)
         donelist.append(rows[index] + avg_word_list + vals)
     print(index, ", :", avg_word_list)
     index += 1
+print("Done")
